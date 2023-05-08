@@ -43,16 +43,16 @@ function Footer() {
                 </Link>
               </div>
               <div className="social-icons d-flex align-items-center gap-15">
-                <a href="">
+                <a href="#">
                   <BsFacebook className="text-white fs-4" />
                 </a>
-                <a href="">
+                <a href="#">
                   <BsInstagram className="text-white fs-4" />
                 </a>
-                <a href="">
+                <a href="#">
                   <BsYoutube className="text-white fs-4" />
                 </a>
-                <a href="">
+                <a href="#">
                   <BsLinkedin className="text-white fs-4" />
                 </a>
               </div>

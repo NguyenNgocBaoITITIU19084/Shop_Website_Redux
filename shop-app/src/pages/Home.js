@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
+import BlogCart from "../components/BlogCart";
+import ProductCart from "../components/ProductCart";
 export const Home = () => {
   return (
     <>
@@ -199,6 +201,20 @@ export const Home = () => {
           </div>
         </div>
       </section>
+      <section className="featured-wrapper py-5 home-wrapper-2">
+        <div className="container-xxl">
+          <div className="row">
+            <div className="col-12">
+              <h3 className="section-heading">Featured Collection</h3>
+            </div>
+            <ProductCart />
+            <ProductCart />
+            <ProductCart />
+            <ProductCart />
+          </div>
+        </div>
+      </section>
+      <section className=""></section>
       <section className="marque-wrapper py-5">
         <div className="container-xxl">
           <div className="row">
@@ -238,11 +254,13 @@ export const Home = () => {
       <section className="blog-wrapper py-5 home-wrapper-2">
         <div className="container-xxl">
           <div className="row">
-            <div className="col-3"></div>
-            <div className="col-3"></div>
-            <div className="col-3"></div>
-            <div className="col-3"></div>
-            <div className="col-3"></div>
+            <div className="col-12">
+              <h3 className="section-heading">Our Latest Blog</h3>
+            </div>
+            <BlogCart />
+            <BlogCart />
+            <BlogCart />
+            <BlogCart />
           </div>
         </div>
       </section>

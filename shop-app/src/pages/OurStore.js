@@ -179,7 +179,49 @@ const OurStore = () => {
                 </div>
               </div>
             </div>
-            <div className="col-9"></div>
+            <div className="col-9">
+              <div className="filter-sort-grid mb-4">
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="d-flex align-items-center gap-10">
+                    <p className="mb-0 d-block" style={{ width: "100px" }}>
+                      Sort By:
+                    </p>
+                    <select name="" className="form-control form-select" id="">
+                      <option value="">Best Selling</option>
+                      <option value="">2</option>
+                      <option value="">3</option>
+                      <option value="">4</option>
+                    </select>
+                  </div>
+                  <div className="d-flex align-items-center gap-10">
+                    <p className="total-products mb-0">21 Products</p>
+                    <div className="d-flex gap-10 align-items-center grid">
+                      <img
+                        src="images/gr4.svg"
+                        className="d-block img-fluid"
+                        alt="grid"
+                      ></img>
+                      <img
+                        src="images/gr3.svg"
+                        className="d-block img-fluid"
+                        alt="grid"
+                      ></img>
+                      <img
+                        src="images/gr2.svg"
+                        className="d-block img-fluid"
+                        alt="grid"
+                      ></img>
+                      <img
+                        src="images/gr.svg"
+                        className="d-block img-fluid"
+                        alt="grid"
+                      ></img>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="products-list pb-5"></div>
+            </div>
           </div>
         </div>
       </div>

@@ -349,10 +349,20 @@ export const Home = () => {
             <div className="col-12">
               <h3 className="section-heading">Our Latest Blog</h3>
             </div>
-            <BlogCart />
-            <BlogCart />
-            <BlogCart />
-            <BlogCart />
+          </div>
+          <div className="row">
+            <div className="col-3">
+              <BlogCart />
+            </div>
+            <div className="col-3">
+              <BlogCart />
+            </div>
+            <div className="col-3">
+              <BlogCart />
+            </div>
+            <div className="col-3">
+              <BlogCart />
+            </div>
           </div>
         </div>
       </section>

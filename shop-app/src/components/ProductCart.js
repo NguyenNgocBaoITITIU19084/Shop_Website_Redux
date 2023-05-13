@@ -11,15 +11,11 @@ const ProductCart = () => {
           </Link>
         </div>
         <div className="product-image">
-          <img
-            className="img-fluid"
-            src="images/watch.jpg"
-            alt="product image"
-          ></img>
+          <img className="img-fluid" src="images/watch.jpg" alt="product"></img>
           <img
             className="img-fluid"
             src="images/product-mix.jpg"
-            alt="product image"
+            alt="product"
           ></img>
         </div>
         <div className="product-details">
@@ -31,7 +27,7 @@ const ProductCart = () => {
             count={5}
             size={24}
             edit={false}
-            value="3"
+            value={3}
             activeColor="#ffd700"
           />
           <p className="price">$100.00</p>

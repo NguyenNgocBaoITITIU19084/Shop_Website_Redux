@@ -94,7 +94,7 @@ function Header() {
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      <img src="images/menu.svg"></img>
+                      <img src="images/menu.svg" alt="menu"></img>
                       <span className="me-5">Categories</span>
                     </button>
                     <ul
@@ -122,7 +122,7 @@ function Header() {
                 <div className="menu-links">
                   <div className="d-flex align-items-center gap-15">
                     <NavLink to="/">Home</NavLink>
-                    <NavLink to="/">Our Store</NavLink>
+                    <NavLink to="/store">Our Store</NavLink>
                     <NavLink to="/">Blogs</NavLink>
                     <NavLink to="/contact">Contact</NavLink>
                   </div>

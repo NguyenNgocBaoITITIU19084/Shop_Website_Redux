@@ -20,7 +20,7 @@ const BlogCart = () => {
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius vel
           sapiente eaque porro
         </p>
-        <Link to="/" className="button">
+        <Link to="/blog/:id" className="button">
           Read More
         </Link>
       </div>

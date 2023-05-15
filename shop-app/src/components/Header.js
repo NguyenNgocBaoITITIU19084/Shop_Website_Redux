@@ -44,7 +44,7 @@ function Header() {
               <div className="header-upper-links d-flex align-items-center justify-content-between">
                 <div>
                   <Link
-                    to="compare-product"
+                    to="/compare-product"
                     className="d-flex align-items-center gap-10 text-white"
                   >
                     <img src="images/compare.svg" alt="compare"></img>
@@ -55,7 +55,7 @@ function Header() {
                 </div>
                 <div>
                   <Link
-                    to="wishlist"
+                    to="/wish-list"
                     className="d-flex align-items-center gap-10 text-white"
                   >
                     <img src="images/wishlist.svg" alt="wishlist"></img>

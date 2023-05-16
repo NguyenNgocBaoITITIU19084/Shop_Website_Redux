@@ -221,20 +221,21 @@ footer .input-group-text {
 
 /* Home Page End */
 
-/* Blog Part */
+/* BLog Part */
+
 .blog-card {
- background-color: white;
- padding: 20px;
- border-radius: 10px;
-}
-.blog-card img {
+    background-color: white;
+  
+    border-radius: 10px;
+  }
+  .blog-card img {
     border-top-left-radius: 10px;
-    border-top-right-radius: 10px;   
-}
-.blog-content {
+    border-top-right-radius: 10px;
+  }
+  .blog-content {
     padding: 15px;
-}
-.blog-content .date {
+  }
+  .blog-contentp.date {
     font-size: 13px;
     line-height: 24px;
     text-transform: uppercase;
@@ -242,17 +243,31 @@ footer .input-group-text {
     font-weight: 400;
     color: var(--color-777777);
     padding: 0;
-}
-.blog-content h5 {
+  }
+  .blog-content h5 {
     font-size: 18px;
     color: var(--color-131921);
-}
-.blog-content p.desc {
+  }
+  .blog-content p.desc {
     font-size: 13px;
     line-height: 22px;
     color: var(--color-777777);
-}
-/* Blog Part Ends*/
+  }
+  .single-blog-card a {
+    font-size: 18px;
+    color: var(--color-777777);
+    margin-bottom: 20px;
+  }
+  .single-blog-card h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-1c1c1b);
+  }
+  .single-blog-card p {
+    color: var(--color-777777);
+    font-size: 14px;
+  }
+  /*  Blog Part ends here */
 
 /* Product Cart */
 .product-card {
@@ -556,3 +571,10 @@ color: var(--color-famous);
     color: white;
   }
   /*  auth card  ends*/
+  /* Policy Pages */
+
+.policy {
+    background-color: white;
+    padding: 30px;
+  }
+  /* Policy Pages  ends */

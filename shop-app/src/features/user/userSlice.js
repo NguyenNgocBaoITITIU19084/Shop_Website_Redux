@@ -8,7 +8,17 @@ export const registerUser = createAsyncThunk(
     try {
       return await authService.register(userData);
     } catch (error) {
-      thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+export const loginUser = createAsyncThunk(
+  "auth/login",
+  async (userData, thunkAPI) => {
+    try {
+      return await authService.login(userData);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
@@ -43,7 +53,29 @@ export const authSlice = createSlice({
         state.isSuccess = false;
         state.message = action.error;
         if (state.isError === true) {
-          toast.error(action.error);
+          toast.error(action.error.message);
+        }
+      })
+      .addCase(loginUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(loginUser.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.isSuccess = true;
+        state.user = action.payload;
+        if (state.isSuccess === true) {
+          localStorage.setItem("access_token", action.payload.access_token);
+          toast.success("Successfully Login");
+        }
+      })
+      .addCase(loginUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.isSuccess = false;
+        state.message = action.error;
+        if (state.isError === true) {
+          toast.error(action.error.message);
         }
       });
   },

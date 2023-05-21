@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BreadCrum from "../components/BreadCrum";
 import Meta from "../components/Meta";
 import ReactStars from "react-rating-stars-component";
 import ProductCart from "../components/ProductCart";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllProducts } from "../features/product/productSlice";
 const OurStore = () => {
   const [grid, setGrid] = useState(4);
+  const productState = useSelector((state) => state.product.product);
 
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getProducts();
+  }, []);
+  const getProducts = () => {
+    dispatch(getAllProducts());
+  };
   return (
     <div>
       <Meta title={"Our Store"} />
@@ -197,7 +207,9 @@ const OurStore = () => {
                     </select>
                   </div>
                   <div className="d-flex align-items-center gap-10">
-                    <p className="total-products mb-0">21 Products</p>
+                    <p className="total-products mb-0">
+                      {productState?.data?.length} Products
+                    </p>
                     <div className="d-flex gap-10 align-items-center grid">
                       <img
                         onClick={() => {
@@ -237,7 +249,7 @@ const OurStore = () => {
               </div>
               <div className="products-list pb-5">
                 <div className="d-flex gap-10 flex-wrap">
-                  <ProductCart grid={grid} />
+                  <ProductCart productData={productState} grid={grid} />
                 </div>
               </div>
             </div>

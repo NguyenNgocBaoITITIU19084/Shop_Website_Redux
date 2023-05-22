@@ -23,16 +23,29 @@ const columns = [
   {
     title: "Category",
     dataIndex: "category",
-    sorter: (a, b) => a.category.length - b.category.length,
   },
   {
-    title: "Color",
-    dataIndex: "color",
+    title: "Description",
+    dataIndex: "description",
+  },
+  {
+    title: "inStock",
+    dataIndex: "inStock",
+    sorter: (a, b) => a.inStock - b.inStock,
+  },
+  {
+    title: "importPrice",
+    dataIndex: "importPrice",
+    sorter: (a, b) => a.importPrice - b.importPrice,
   },
   {
     title: "Price",
     dataIndex: "price",
     sorter: (a, b) => a.price - b.price,
+  },
+  {
+    title: "isActive",
+    dataIndex: "isActive",
   },
   {
     title: "Action",
@@ -47,14 +60,21 @@ const Productlist = () => {
   }, []);
   const productState = useSelector((state) => state.product.products);
   const data1 = [];
-  for (let i = 0; i < productState.length; i++) {
+  let categorylist = [];
+  for (let i = 0; i < productState?.data?.length; i++) {
+    for (let j = 0; j < productState.data[i].category.length; j++) {
+      categorylist.push(Object.values(productState.data[i].category[j]));
+    }
     data1.push({
       key: i + 1,
-      title: productState[i].title,
-      brand: productState[i].brand,
-      category: productState[i].category,
-      color: productState[i].color,
-      price: `${productState[i].price}`,
+      title: productState.data[i].name,
+      brand: productState.data[i].brand.name,
+      category: categorylist.join(", "),
+      description: productState.data[i].description,
+      inStock: productState.data[i].inStock,
+      importPrice: `${productState.data[i].importPrice}`,
+      price: `${productState.data[i].price}`,
+      isActive: productState.data[i].isActive.toString(),
       action: (
         <>
           <Link to="/" className=" fs-3 text-danger">
@@ -66,11 +86,12 @@ const Productlist = () => {
         </>
       ),
     });
+    categorylist = [];
   }
-  console.log(data1);
+  console.log(categorylist);
   return (
     <div>
-      <h3 className="mb-4 title">Products</h3>
+      <h3 className="mb-4 title">{productState?.data?.length} Products</h3>
       <div>
         <Table columns={columns} dataSource={data1} />
       </div>

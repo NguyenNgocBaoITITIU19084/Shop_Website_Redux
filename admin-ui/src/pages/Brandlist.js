@@ -22,6 +22,14 @@ const columns = [
     sorter: (a, b) => a.name.length - b.name.length,
   },
   {
+    title: "Description",
+    dataIndex: "description",
+  },
+  {
+    title: "isActive",
+    dataIndex: "isActive",
+  },
+  {
     title: "Action",
     dataIndex: "action",
   },
@@ -45,21 +53,23 @@ const Brandlist = () => {
   }, []);
   const brandState = useSelector((state) => state.brand.brands);
   const data1 = [];
-  for (let i = 0; i < brandState.length; i++) {
+  for (let i = 0; i < brandState?.data?.length; i++) {
     data1.push({
       key: i + 1,
-      name: brandState[i].title,
+      name: brandState.data[i].name,
+      description: brandState.data[i].description,
+      isActive: brandState.data[i].isActive.toString(),
       action: (
         <>
           <Link
-            to={`/admin/brand/${brandState[i]._id}`}
+            to={`/admin/brand/${brandState.data[i]._id}`}
             className=" fs-3 text-danger"
           >
             <BiEdit />
           </Link>
           <button
             className="ms-3 fs-3 text-danger bg-transparent border-0"
-            onClick={() => showModal(brandState[i]._id)}
+            onClick={() => showModal(brandState.data[i]._id)}
           >
             <AiFillDelete />
           </button>

@@ -2,13 +2,13 @@ import axios from "axios";
 import { config } from "../../utils/axiosconfig";
 import { base_url } from "../../utils/baseUrl";
 const getCoupons = async () => {
-  const response = await axios.get(`${base_url}coupon/`, config);
+  const response = await axios.get(`${base_url}/discount/`, config);
 
   return response.data;
 };
 
 const createCoupons = async (coupon) => {
-  const response = await axios.post(`${base_url}coupon/`, coupon, config);
+  const response = await axios.post(`${base_url}/discount/`, coupon, config);
 
   return response.data;
 };

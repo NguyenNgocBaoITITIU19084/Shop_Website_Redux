@@ -14,19 +14,24 @@ const columns = [
   },
 
   {
-    title: "Name",
-    dataIndex: "name",
-    sorter: (a, b) => a.name.length - b.name.length,
+    title: "Code",
+    dataIndex: "code",
+    sorter: (a, b) => a.code.length - b.code.length,
   },
   {
-    title: "Discount",
-    dataIndex: "discount",
-    sorter: (a, b) => a.discount - b.discount,
+    title: "Description",
+    dataIndex: "description",
+    sorter: (a, b) => a.description.length - b.description.length,
   },
   {
-    title: "Expiry",
-    dataIndex: "expiry",
-    sorter: (a, b) => a.name.length - b.name.length,
+    title: "Discount Persent",
+    dataIndex: "persent",
+    sorter: (a, b) => a.persent - b.persent,
+  },
+  {
+    title: "isActive",
+    dataIndex: "isActive",
+    sorter: (a, b) => a.persent - b.persent,
   },
   {
     title: "Action",
@@ -50,24 +55,26 @@ const Couponlist = () => {
     dispatch(getAllCoupon());
   }, []);
   const couponState = useSelector((state) => state.coupon.coupons);
+  console.log(couponState.data);
   const data1 = [];
-  for (let i = 0; i < couponState.length; i++) {
+  for (let i = 0; i < couponState.data?.length; i++) {
     data1.push({
       key: i + 1,
-      name: couponState[i].name,
-      discount: couponState[i].discount,
-      expiry: new Date(couponState[i].expiry).toLocaleString(),
+      code: couponState.data[i].code,
+      description: couponState.data[i].description,
+      persent: couponState.data[i].discountPersent,
+      isActive: couponState.data[i].isActive.toString(),
       action: (
         <>
           <Link
-            to={`/admin/coupon/${couponState[i]._id}`}
+            to={`/admin/coupon/${couponState.data[i]._id}`}
             className=" fs-3 text-danger"
           >
             <BiEdit />
           </Link>
           <button
             className="ms-3 fs-3 text-danger bg-transparent border-0"
-            onClick={() => showModal(couponState[i]._id)}
+            onClick={() => showModal(couponState.data[i]._id)}
           >
             <AiFillDelete />
           </button>

@@ -32,12 +32,9 @@ const Customers = () => {
     dispatch(getUsers());
   }, []);
   const customerstate = useSelector((state) => state.customer.customers);
-  console.log(customerstate.data);
-
   const data1 = [];
   for (let i = 0; i < customerstate?.data?.length; i++) {
     // if (customerstate[i].roles !== "admin") {
-    console.log(customerstate.data[i].isActive);
     data1.push({
       key: i + 1,
       id: customerstate.data[i]._id,

@@ -21,7 +21,15 @@ const columns = [
     dataIndex: "name",
     sorter: (a, b) => a.name.length - b.name.length,
   },
-
+  {
+    title: "Description",
+    dataIndex: "description",
+    sorter: (a, b) => a.description.length - b.description.length,
+  },
+  {
+    title: "isActive",
+    dataIndex: "isActive",
+  },
   {
     title: "Action",
     dataIndex: "action",
@@ -46,21 +54,23 @@ const Categorylist = () => {
   }, []);
   const pCatStat = useSelector((state) => state.pCategory.pCategories);
   const data1 = [];
-  for (let i = 0; i < pCatStat.length; i++) {
+  for (let i = 0; i < pCatStat.data?.length; i++) {
     data1.push({
       key: i + 1,
-      name: pCatStat[i].title,
+      name: pCatStat.data[i].name,
+      description: pCatStat.data[i].description,
+      isActive: pCatStat.data[i].isActive.toString(),
       action: (
         <>
           <Link
-            to={`/admin/category/${pCatStat[i]._id}`}
+            to={`/admin/category/${pCatStat.data[i]._id}`}
             className=" fs-3 text-danger"
           >
             <BiEdit />
           </Link>
           <button
             className="ms-3 fs-3 text-danger bg-transparent border-0"
-            onClick={() => showModal(pCatStat[i]._id)}
+            onClick={() => showModal(pCatStat.data[i]._id)}
           >
             <AiFillDelete />
           </button>

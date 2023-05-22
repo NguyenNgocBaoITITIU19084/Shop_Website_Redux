@@ -8,17 +8,21 @@ const columns = [
     dataIndex: "key",
   },
   {
-    title: "Name",
-    dataIndex: "name",
-    sorter: (a, b) => a.name.length - b.name.length,
+    title: "id",
+    dataIndex: "id",
   },
   {
     title: "Email",
     dataIndex: "email",
+    sorter: (a, b) => a.email.length - b.email.length,
   },
   {
-    title: "Mobile",
-    dataIndex: "mobile",
+    title: "Active",
+    dataIndex: "active",
+  },
+  {
+    title: "Roles",
+    dataIndex: "roles",
   },
 ];
 
@@ -28,16 +32,20 @@ const Customers = () => {
     dispatch(getUsers());
   }, []);
   const customerstate = useSelector((state) => state.customer.customers);
+  console.log(customerstate.data);
+
   const data1 = [];
-  for (let i = 0; i < customerstate.length; i++) {
-    if (customerstate[i].role !== "admin") {
-      data1.push({
-        key: i + 1,
-        name: customerstate[i].firstname + " " + customerstate[i].lastname,
-        email: customerstate[i].email,
-        mobile: customerstate[i].mobile,
-      });
-    }
+  for (let i = 0; i < customerstate?.data?.length; i++) {
+    // if (customerstate[i].roles !== "admin") {
+    console.log(customerstate.data[i].isActive);
+    data1.push({
+      key: i + 1,
+      id: customerstate.data[i]._id,
+      email: customerstate.data[i].email,
+      active: customerstate.data[i].isActive.toString(),
+      roles: customerstate.data[i].roles.join(", "),
+    });
+    // }
   }
 
   return (

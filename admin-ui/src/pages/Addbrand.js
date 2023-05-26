@@ -13,7 +13,8 @@ import {
 } from "../features/brand/brandSlice";
 
 let schema = yup.object().shape({
-  title: yup.string().required("Brand Name is Required"),
+  name: yup.string().required("Brand Name is Required"),
+  description: yup.string().required("Description Name is Required"),
 });
 const Addbrand = () => {
   const dispatch = useDispatch();
@@ -53,7 +54,8 @@ const Addbrand = () => {
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
-      title: brandName || "",
+      name: "",
+      description: "",
     },
     validationSchema: schema,
     onSubmit: (values) => {
@@ -62,6 +64,7 @@ const Addbrand = () => {
         dispatch(updateABrand(data));
         dispatch(resetState());
       } else {
+        console.log("create", values);
         dispatch(createBrand(values));
         formik.resetForm();
         setTimeout(() => {
@@ -80,15 +83,27 @@ const Addbrand = () => {
         <form action="" onSubmit={formik.handleSubmit}>
           <CustomInput
             type="text"
-            name="title"
-            onChng={formik.handleChange("title")}
-            onBlr={formik.handleBlur("title")}
-            val={formik.values.title}
+            name="name"
+            onChng={formik.handleChange("name")}
+            onBlr={formik.handleBlur("name")}
+            val={formik.values.name}
             label="Enter Brand"
             id="brand"
           />
           <div className="error">
-            {formik.touched.title && formik.errors.title}
+            {formik.touched.name && formik.errors.name}
+          </div>
+          <CustomInput
+            type="text"
+            name="description"
+            onChng={formik.handleChange("description")}
+            onBlr={formik.handleBlur("description")}
+            val={formik.values.description}
+            label="Enter Description"
+            id="brand"
+          />
+          <div className="error">
+            {formik.touched.description && formik.errors.description}
           </div>
           <button
             className="btn btn-success border-0 rounded-3 my-5"

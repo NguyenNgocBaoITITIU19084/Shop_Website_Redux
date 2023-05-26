@@ -12,7 +12,8 @@ import {
   updateAProductCategory,
 } from "../features/pcategory/pcategorySlice";
 let schema = yup.object().shape({
-  title: yup.string().required("Category Name is Required"),
+  name: yup.string().required("Category Name is Required"),
+  description: yup.string().required("Description Name is Required"),
 });
 const Addcat = () => {
   const dispatch = useDispatch();
@@ -50,7 +51,8 @@ const Addcat = () => {
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
-      title: categoryName || "",
+      name: "",
+      description: "",
     },
     validationSchema: schema,
     onSubmit: (values) => {
@@ -76,14 +78,25 @@ const Addcat = () => {
         <form action="" onSubmit={formik.handleSubmit}>
           <CustomInput
             type="text"
-            label="Enter Product Category"
-            onChng={formik.handleChange("title")}
-            onBlr={formik.handleBlur("title")}
-            val={formik.values.title}
+            label="Enter Product Category Name"
+            onChng={formik.handleChange("name")}
+            onBlr={formik.handleBlur("name")}
+            val={formik.values.name}
             id="brand"
           />
           <div className="error">
-            {formik.touched.title && formik.errors.title}
+            {formik.touched.name && formik.errors.name}
+          </div>
+          <CustomInput
+            type="text"
+            label="Enter Product Category Description"
+            onChng={formik.handleChange("description")}
+            onBlr={formik.handleBlur("description")}
+            val={formik.values.description}
+            id="brand"
+          />
+          <div className="error">
+            {formik.touched.description && formik.errors.description}
           </div>
           <button
             className="btn btn-success border-0 rounded-3 my-5"

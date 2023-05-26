@@ -67,17 +67,20 @@ const Productlist = () => {
     }
     data1.push({
       key: i + 1,
-      title: productState.data[i].name,
-      brand: productState.data[i].brand.name,
+      title: productState.data[i]?.name,
+      brand: productState.data[i]?.brand?.name,
       category: categorylist.join(", "),
-      description: productState.data[i].description,
-      inStock: productState.data[i].inStock,
-      importPrice: `${productState.data[i].importPrice}`,
-      price: `${productState.data[i].price}`,
-      isActive: productState.data[i].isActive.toString(),
+      description: productState.data[i]?.description,
+      inStock: productState.data[i]?.inStock,
+      importPrice: `${productState.data[i]?.importPrice}`,
+      price: `${productState.data[i]?.price}`,
+      isActive: productState.data[i]?.isActive.toString(),
       action: (
         <>
-          <Link to="/" className=" fs-3 text-danger">
+          <Link
+            to={`/admin/product/${productState.data[i]._id}`}
+            className=" fs-3 text-danger"
+          >
             <BiEdit />
           </Link>
           <Link className="ms-3 fs-3 text-danger" to="/">
@@ -88,7 +91,6 @@ const Productlist = () => {
     });
     categorylist = [];
   }
-  console.log(categorylist);
   return (
     <div>
       <h3 className="mb-4 title">{productState?.data?.length} Products</h3>

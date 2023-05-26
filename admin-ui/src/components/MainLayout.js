@@ -30,8 +30,8 @@ const MainLayout = () => {
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="logo">
           <h2 className="text-white fs-5 text-center py-3 mb-0">
-            <span className="sm-logo">DC</span>
-            <span className="lg-logo">Dev Corner</span>
+            <span className="sm-logo">DS</span>
+            <span className="lg-logo">Devshop.</span>
           </h2>
         </div>
         <Menu
@@ -90,16 +90,16 @@ const MainLayout = () => {
                   icon: <BiCategoryAlt className="fs-4" />,
                   label: "Category List",
                 },
-                {
-                  key: "color",
-                  icon: <AiOutlineBgColors className="fs-4" />,
-                  label: "Color",
-                },
-                {
-                  key: "list-color",
-                  icon: <AiOutlineBgColors className="fs-4" />,
-                  label: "Color List",
-                },
+                // {
+                //   key: "color",
+                //   icon: <AiOutlineBgColors className="fs-4" />,
+                //   label: "Color",
+                // },
+                // {
+                //   key: "list-color",
+                //   icon: <AiOutlineBgColors className="fs-4" />,
+                //   label: "Color List",
+                // },
               ],
             },
             {
@@ -183,22 +183,22 @@ const MainLayout = () => {
             </div>
 
             <div className="d-flex gap-3 align-items-center dropdown">
-              <div>
+              {/* <div>
                 <img
                   width={32}
                   height={32}
                   src="https://stroyka-admin.html.themeforest.scompiler.ru/variants/ltr/images/customers/customer-4-64x64.jpg"
                   alt=""
                 />
-              </div>
+              </div> */}
               <div
                 role="button"
                 id="dropdownMenuLink"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <h5 className="mb-0">Navdeep</h5>
-                <p className="mb-0">navdeepdahiya753@gmail.com</p>
+                <h5 className="mb-0">Admin</h5>
+                <p className="mb-0">admin@gmail.com</p>
               </div>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <li>
